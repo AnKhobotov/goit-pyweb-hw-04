@@ -59,19 +59,6 @@ class GoitFramework(BaseHTTPRequestHandler):
         with open(filename, 'rb') as file:
             self.wfile.write(file.read())
 
-    # def render_template(self, filename, status_code=200):
-    #     self.send_response(status_code)
-    #     self.send_header('Content-Type', 'text/html')
-    #     self.end_headers()
-
-    #     with open('storage/data.json', 'r', encoding='utf-8') as file:
-    #         data = json.load(file)
-
-    #     template = jinja.get_template(filename)
-    #     message = None  # "Hello Sergiy!"
-    #     html = template.render(blogs=data, message=message)
-    #     self.wfile.write(html.encode())
-
     def send_static(self, filename, status_code=200):
         self.send_response(status_code)
         mime_type, *_ = mimetypes.guess_type(filename)
